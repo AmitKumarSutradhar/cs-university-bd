@@ -1,25 +1,37 @@
 import React from 'react';
-import { Button, Card } from 'react-bootstrap';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Col, Container, Row } from 'react-bootstrap';
+import { useLoaderData } from 'react-router-dom';
+import RightSideBar from '../RightSideBar/RightSideBar';
+import CourseDetails from './CourseDetails';
 
-const Courses = ({ course }) => {
-    const courses = useLoaderData();
-    console.log(course);
-    const { name, id } = course;
+const Courses = () => {
+    const allCourses = useLoaderData();
+    console.log(allCourses);
     return (
         <div>
-            <Card>
-                {/* <Card.Img variant="top" src={image_url} /> */}
-                <Card.Body>
-                    <Card.Title>{name}</Card.Title>
-                    <Card.Text>
-                        {id}
-                    </Card.Text>
-                    {/* <Link to={`/category/${category_id}`}>
-                        <Button variant="primary">All news in this category</Button>
-                    </Link> */}
-                </Card.Body>
-            </Card>
+            <Container className='my-5'>
+                <Row>
+                    <Col lg='9'>
+                        {
+                            allCourses.map(course => <CourseDetails
+                                key={course._id}
+                                course={course}
+                            ></CourseDetails>
+                            )
+                        }
+                    </Col>
+                    <Col lg='3'>
+                        <RightSideBar></RightSideBar>
+                    </Col>
+                </Row>
+            </Container>
+            {
+                allCourses.map(course => <CourseDetails
+                    key={course._id}
+                    course={course}
+                ></CourseDetails>
+                )
+            }
         </div>
     );
 };
