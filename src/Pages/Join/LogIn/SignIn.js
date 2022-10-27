@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/UserContext';
 
 const SignIn = () => {
@@ -62,6 +62,7 @@ const SignIn = () => {
                     {error}
                 </Form.Text>
             </Form>
+            <p>New to CS University BD? <Link to='/register'> Create a new account</Link></p>
         </div>
     );
 };
