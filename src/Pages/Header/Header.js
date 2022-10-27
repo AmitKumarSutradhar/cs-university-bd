@@ -1,11 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Container, Image, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import DarkModeToggle from "react-dark-mode-toggle";
 import { AuthContext } from '../../contexts/UserContext';
 import './Header.css'
 
 const Header = () => {
-
+    const [isDarkMode, setIsDarkMode] = useState(() => false);
     const { user, logOut } = useContext(AuthContext);
 
     const handleLogOut = () => {
@@ -27,35 +28,36 @@ const Header = () => {
                             <Nav.Link><Link to='/blog'>Blog</Link></Nav.Link>
                         </Nav>
                         <Nav>
-                            <Nav.Link href="#deets">Toggle</Nav.Link>
+                            <DarkModeToggle
+                                onChange={setIsDarkMode}
+                                checked={isDarkMode}
+                                size={80}
+                            />
+
                         </Nav>
                         <Nav>
                             <>
                                 {
                                     user?.uid ?
                                         <>
-                                            <span>{user?.displayName}</span>
-                                            <Button variant="light" onClick={handleLogOut}>Log out</Button>
+                                            <Link className='ms-4' to="/profile">
+                                                {user?.photoURL ?
+                                                    <Image
+                                                        style={{ height: '30px' }}
+                                                        roundedCircle
+                                                        src={user?.photoURL}>
+                                                    </Image>
+                                                    : <>User</>
+                                                }
+                                            </Link>
+                                            <Button className='ms-4' variant="light" onClick={handleLogOut}>Log out</Button>
                                         </>
                                         :
                                         <>
                                             <Link to='/login'>Login</Link>
-                                            <Link to='/register'>Register</Link>
                                         </>
                                 }
-
-
                             </>
-                            <Link to="/profile">
-                                {user?.photoURL ?
-                                    <Image
-                                        style={{ height: '30px' }}
-                                        roundedCircle
-                                        src={user?.photoURL}>
-                                    </Image>
-                                    : <>User</>
-                                }
-                            </Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
