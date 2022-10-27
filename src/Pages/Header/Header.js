@@ -29,9 +29,6 @@ const Header = () => {
                             <Nav.Link href="#deets">Toggle</Nav.Link>
                         </Nav>
                         <Nav>
-                            <Nav.Link href="#deets">Toggle</Nav.Link>
-                        </Nav>
-                        <Nav>
                             <>
                                 {
                                     user?.uid ?
