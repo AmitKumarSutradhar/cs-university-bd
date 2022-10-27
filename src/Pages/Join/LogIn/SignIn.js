@@ -1,13 +1,14 @@
 import React, { useContext, useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Button, ButtonGroup, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/UserContext';
+import { FaGoogle, FaGithub } from "react-icons/fa";
 
 const SignIn = () => {
 
 
     const [error, setError] = useState('');
-    const { signIn, setLoading } = useContext(AuthContext);
+    const { signIn, setLoading, providerLogin } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -25,12 +26,13 @@ const SignIn = () => {
                 console.log(user);
                 form.reset();
                 setError('');
-                if (user.emailVerified) {
-                    navigate(from, { replace: true });
-                }
-                else {
-                    // toast.error('Your email is not verified. Please verify your email address.')
-                }
+                navigate('/');
+                // if (user.emailVerified) {
+                //     navigate(from, { replace: true });
+                // }
+                // else {
+                //     // toast.error('Your email is not verified. Please verify your email address.')
+                // }
             })
             .catch(error => {
                 console.error(error)
@@ -39,6 +41,17 @@ const SignIn = () => {
             .finally(() => {
                 setLoading(false);
             })
+    }
+
+
+
+    const handleGoogleSignIn = () => {
+        providerLogin()
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.error(error))
     }
 
     return (
@@ -62,6 +75,10 @@ const SignIn = () => {
                     {error}
                 </Form.Text>
             </Form>
+            <ButtonGroup vertical>
+                <Button onClick={handleGoogleSignIn} className='mb-2' variant="outline-primary"> <FaGoogle></FaGoogle> Login with Google</Button>
+                <Button variant="outline-dark"> <FaGithub></FaGithub> Login with Github</Button>
+            </ButtonGroup>
             <p>New to CS University BD? <Link to='/register'> Create a new account</Link></p>
         </div>
     );

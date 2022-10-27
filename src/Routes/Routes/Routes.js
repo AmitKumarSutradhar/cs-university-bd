@@ -14,11 +14,15 @@ export const routes = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home></Home>
+                element: <Home></Home>,
+                // loader: () => fetch('https://cs-university-bd-server.vercel.app/courses')
+                loader: () => fetch('http://localhost:5000/courses-categories')
             },
             {
                 path: '/courses',
-                element: <Courses></Courses>
+                element: <Courses></Courses>,
+                // loader: ({ params }) => fetch(`https://cs-university-bd-server.vercel.app/courses`)
+                // loader: ({ params }) => fetch('http://localhost:5000/courses')
             },
             {
                 path: '/faq',

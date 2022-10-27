@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Button, Container, Image, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/UserContext';
+import './Header.css'
 
 const Header = () => {
 
@@ -14,13 +15,13 @@ const Header = () => {
     }
 
     return (
-        <div>
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <div className='nav-bg'>
+            <Navbar collapseOnSelect expand="lg" variant="dark">
                 <Container>
                     <Navbar.Brand><Link><Image src='logo.png'></Image></Link></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="me-auto">
+                        <Nav className="ms-auto">
                             <Nav.Link><Link to='/courses'>Courses</Link></Nav.Link>
                             <Nav.Link><Link to='/faq'>FAQ</Link></Nav.Link>
                             <Nav.Link><Link to='/blog'>Blog</Link></Nav.Link>

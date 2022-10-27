@@ -7,6 +7,7 @@ import { initializeApp } from "firebase/app";
 const firebaseConfig = {
     apiKey: "AIzaSyC2huAph_rStubp7ouxsPSKlEScmfAGLNs",
     authDomain: "cs-university-bd.firebaseapp.com",
+    databaseURL: "https://cs-university-bd-default-rtdb.asia-southeast1.firebasedatabase.app",
     projectId: "cs-university-bd",
     storageBucket: "cs-university-bd.appspot.com",
     messagingSenderId: "915690298714",
