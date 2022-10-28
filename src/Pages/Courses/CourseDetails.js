@@ -8,19 +8,19 @@ const CourseDetails = ({ course }) => {
         <div>
             <Card className='mb-5'>
                 <Card>
-                    <Card.Img variant="top" src={image_url ? image_url : null} />
+                    <Card.Img variant="top" className='img' src={image_url ? image_url : null} />
                     <Card.Body>
                         <Card.Title>{title}</Card.Title>
                         <Card.Text>
                             {
                                 details.length > 250 ?
-                                    <>{details.slice(0, 200) + '...'} <Link to={`/news/${_id}`}>Read More</Link> </>
+                                    <>{details.slice(0, 200) + '...'} <Link to={`/courses/${_id}`}>Read More</Link> </>
                                     :
                                     details
                             }
                         </Card.Text>
                         <Link to={`/category/${category_id}`}>
-                            <Button variant="primary">All Courses in this category</Button>
+                            <Button variant="primary">Course Details</Button>
                         </Link>
                     </Card.Body>
                 </Card>

@@ -9,6 +9,7 @@ import Home from "../../Pages/Home/Home";
 import SignIn from "../../Pages/Join/LogIn/SignIn";
 import Register from "../../Pages/Join/Register/Register";
 import Profile from "../../Pages/Other/Profile/Profile";
+import SingleCourse from "../../Pages/SingleCourse/SingleCourse";
 import PrivateRoute from "../PrivateRoutes/PrivateRoute";
 
 export const routes = createBrowserRouter([
@@ -29,6 +30,11 @@ export const routes = createBrowserRouter([
                 path: '/category/:id',
                 element: <PrivateRoute><CoursesCategory></CoursesCategory></PrivateRoute>,
                 loader: ({ params }) => fetch(`https://cs-university-bd-server.vercel.app/category/${params.id}`)
+            },
+            {
+                path: '/courses/:_id',
+                element: <PrivateRoute><SingleCourse></SingleCourse></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://cs-university-bd-server.vercel.app/courses/${params._id}`)
             },
             {
                 path: '/faq',

@@ -13,7 +13,7 @@ const CoursesCategory = () => {
             <Container>
                 <Row>
                     <Col lg='9'>
-                        <h2>This is Category has news: {categoryCourses.length}</h2>
+                        <h2>This is Category has courses: {categoryCourses.length}</h2>
                         {
                             categoryCourses.map(news => <CourseCaredSummery
                                 key={news._id}

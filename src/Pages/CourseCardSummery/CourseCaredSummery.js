@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Image } from 'react-bootstrap';
+import { Button, Card, Image } from 'react-bootstrap';
 import { FaEye, FaRegBookmark, FaShareAlt, FaStar } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
@@ -33,7 +33,7 @@ const CourseCaredSummery = ({ news }) => {
                 <Card.Text>
                     {
                         details.length > 250 ?
-                            <>{details.slice(0, 250) + '...'} <Link to={`/courses/${_id}`}>Read More</Link> </>
+                            <>{details.slice(0, 250) + '...'}<Button><Link to={`/courses/${_id}`} className="text-white">Show Details</Link></Button></>
                             :
                             details
                     }

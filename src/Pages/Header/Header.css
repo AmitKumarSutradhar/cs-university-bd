@@ -1,8 +1,13 @@
 .nav-bg {
-    background-color: #367CF2;
+    /* background-color: #367CF2; */
+    background-color: #01203F;
 }
 
 .nav-bg a {
     color: #fff;
     text-decoration: none;
+}
+
+.btn {
+    background-color: #AEEFD0;
 }

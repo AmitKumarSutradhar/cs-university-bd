@@ -49,10 +49,10 @@ const Header = () => {
                                                         roundedCircle
                                                         src={user?.photoURL}>
                                                     </Image>
-                                                    : <>User</>
+                                                    : <>{user.email}</>
                                                 }
                                             </Link>
-                                            <Button className='ms-3' variant="light" onClick={handleLogOut}>Log out</Button>
+                                            <Button className='ms-3 cs-btn' variant="light" onClick={handleLogOut}>Log out</Button>
                                         </>
                                         :
                                         <>
