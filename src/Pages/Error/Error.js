@@ -1,9 +1,13 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
 
 const Error = () => {
     return (
         <div>
-            <p>Sorry,this page is not available.</p>
+            <Container>
+                <p className='text-center'>Sorry,this page is not available.</p>
+            </Container>
+
         </div>
     );
 };

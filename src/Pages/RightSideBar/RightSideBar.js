@@ -6,7 +6,7 @@ const RightSideBar = () => {
     const [courses, setCourses] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/courses-categories')
+        fetch('https://cs-university-bd-server.vercel.app/courses-categories')
             .then(res => res.json())
             .then(data => setCourses(data));
     }, [])

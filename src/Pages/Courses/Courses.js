@@ -3,6 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 import RightSideBar from '../RightSideBar/RightSideBar';
 import CourseDetails from './CourseDetails';
+import './Courses.css'
 
 const Courses = () => {
     const allCourses = useLoaderData();
@@ -12,26 +13,21 @@ const Courses = () => {
             <Container className='my-5'>
                 <Row>
                     <Col lg='9'>
-                        {
-                            allCourses.map(course => <CourseDetails
-                                key={course._id}
-                                course={course}
-                            ></CourseDetails>
-                            )
-                        }
+                        <div className='all-courses'>
+                            {
+                                allCourses.map(course => <CourseDetails
+                                    key={course._id}
+                                    course={course}
+                                ></CourseDetails>
+                                )
+                            }
+                        </div>
                     </Col>
                     <Col lg='3'>
                         <RightSideBar></RightSideBar>
                     </Col>
                 </Row>
             </Container>
-            {
-                allCourses.map(course => <CourseDetails
-                    key={course._id}
-                    course={course}
-                ></CourseDetails>
-                )
-            }
         </div>
     );
 };

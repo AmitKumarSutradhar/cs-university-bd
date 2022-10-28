@@ -8,6 +8,7 @@ import FAQ from "../../Pages/FAQ/FAQ";
 import Home from "../../Pages/Home/Home";
 import SignIn from "../../Pages/Join/LogIn/SignIn";
 import Register from "../../Pages/Join/Register/Register";
+import PrivateRoute from "../PrivateRoutes/PrivateRoute";
 
 export const routes = createBrowserRouter([
     {
@@ -24,13 +25,12 @@ export const routes = createBrowserRouter([
                 path: '/courses',
                 element: <Courses></Courses>,
                 // loader: ({ params }) => fetch(`https://cs-university-bd-server.vercel.app/courses`)
-                loader: () => fetch('http://localhost:5000/courses')
+                loader: () => fetch('https://cs-university-bd-server.vercel.app/courses')
             },
             {
                 path: '/category/:id',
-                element: <CoursesCategory></CoursesCategory>,
-                // loader: ({ params }) => fetch(`https://cs-university-bd-server.vercel.app/courses`)
-                loader: ({ params }) => fetch(`http://localhost:5000/courses-categories/${params.id}`)
+                element: <PrivateRoute><CoursesCategory></CoursesCategory></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://dragon-news-server-seven.vercel.app/category/${params.id}`)
             },
             {
                 path: '/faq',
