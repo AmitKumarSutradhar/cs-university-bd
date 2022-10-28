@@ -3,6 +3,7 @@ import Main from "../../layout/Main";
 import Blog from "../../Pages/Blog/Blog";
 import Courses from "../../Pages/Courses/Courses";
 import CoursesCategory from "../../Pages/CoursesCategory/CoursesCategory";
+import Error from "../../Pages/Error/Error";
 import FAQ from "../../Pages/FAQ/FAQ";
 import Home from "../../Pages/Home/Home";
 import SignIn from "../../Pages/Join/LogIn/SignIn";
@@ -48,5 +49,9 @@ export const routes = createBrowserRouter([
                 element: <Register></Register>
             }
         ]
+    },
+    {
+        path: '*',
+        element: <Error></Error>
     }
 ])
