@@ -19,16 +19,18 @@ const Header = () => {
         <div className='nav-bg'>
             <Navbar collapseOnSelect expand="lg" variant="dark">
                 <Container>
-                    <Navbar.Brand><Link><Image src='logo.png'></Image></Link></Navbar.Brand>
+                    <Navbar.Brand><Link to='/'><Image src='logo.png'></Image></Link></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="ms-auto">
+                            <Nav.Link><Link to='/'>Home</Link></Nav.Link>
                             <Nav.Link><Link to='/courses'>Courses</Link></Nav.Link>
                             <Nav.Link><Link to='/faq'>FAQ</Link></Nav.Link>
                             <Nav.Link><Link to='/blog'>Blog</Link></Nav.Link>
                         </Nav>
                         <Nav>
                             <DarkModeToggle
+                                className='mx-3'
                                 onChange={setIsDarkMode}
                                 checked={isDarkMode}
                                 size={80}
@@ -50,7 +52,7 @@ const Header = () => {
                                                     : <>User</>
                                                 }
                                             </Link>
-                                            <Button className='ms-4' variant="light" onClick={handleLogOut}>Log out</Button>
+                                            <Button className='ms-3' variant="light" onClick={handleLogOut}>Log out</Button>
                                         </>
                                         :
                                         <>
