@@ -18,20 +18,17 @@ export const routes = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home></Home>,
-                // loader: () => fetch('https://cs-university-bd-server.vercel.app/courses')
-                // loader: () => fetch('http://localhost:5000/courses-categories')
+                element: <Home></Home>
             },
             {
                 path: '/courses',
                 element: <Courses></Courses>,
-                // loader: ({ params }) => fetch(`https://cs-university-bd-server.vercel.app/courses`)
                 loader: () => fetch('https://cs-university-bd-server.vercel.app/courses')
             },
             {
                 path: '/category/:id',
                 element: <PrivateRoute><CoursesCategory></CoursesCategory></PrivateRoute>,
-                loader: ({ params }) => fetch(`https://dragon-news-server-seven.vercel.app/category/${params.id}`)
+                loader: ({ params }) => fetch(`https://cs-university-bd-server.vercel.app/category/${params.id}`)
             },
             {
                 path: '/faq',

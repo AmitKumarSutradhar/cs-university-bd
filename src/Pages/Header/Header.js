@@ -40,12 +40,12 @@ const Header = () => {
                         <Nav>
                             <>
                                 {
-                                    user?.uid ?
+                                    user?.email ?
                                         <>
                                             <Link className='ms-4' to="/profile">
                                                 {user?.photoURL ?
                                                     <Image
-                                                        style={{ height: '30px' }}
+                                                        style={{ height: '40px', width: '40px' }}
                                                         roundedCircle
                                                         src={user?.photoURL}>
                                                     </Image>
